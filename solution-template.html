@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<HTML lang = "en">
+<HEAD>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>BEE 4750&#x2F;5750 Homework 3</title>
+  
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+  </script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Menlo&family=Hind&family=Raleway&family=Yantramanav&display=swap');
+</style>
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+  
+<style>
+pre.hljl {
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 5px;
+    overflow-x: auto;
+    color: rgb(68,68,68); background-color: rgb(251,251,251); }
+pre.hljl > span.hljl-t { }
+pre.hljl > span.hljl-w { }
+pre.hljl > span.hljl-e { }
+pre.hljl > span.hljl-eB { }
+pre.hljl > span.hljl-o { }
+pre.hljl > span.hljl-k { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kc { color: rgb(59,151,46); font-style: italic; }
+pre.hljl > span.hljl-kd { color: rgb(214,102,97); font-style: italic; }
+pre.hljl > span.hljl-kn { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kp { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kr { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-kt { color: rgb(148,91,176); font-weight: bold; }
+pre.hljl > span.hljl-n { }
+pre.hljl > span.hljl-na { }
+pre.hljl > span.hljl-nb { }
+pre.hljl > span.hljl-nbp { }
+pre.hljl > span.hljl-nc { }
+pre.hljl > span.hljl-ncB { }
+pre.hljl > span.hljl-nd { color: rgb(214,102,97); }
+pre.hljl > span.hljl-ne { }
+pre.hljl > span.hljl-neB { }
+pre.hljl > span.hljl-nf { color: rgb(66,102,213); }
+pre.hljl > span.hljl-nfm { color: rgb(66,102,213); }
+pre.hljl > span.hljl-np { }
+pre.hljl > span.hljl-nl { }
+pre.hljl > span.hljl-nn { }
+pre.hljl > span.hljl-no { }
+pre.hljl > span.hljl-nt { }
+pre.hljl > span.hljl-nv { }
+pre.hljl > span.hljl-nvc { }
+pre.hljl > span.hljl-nvg { }
+pre.hljl > span.hljl-nvi { }
+pre.hljl > span.hljl-nvm { }
+pre.hljl > span.hljl-l { }
+pre.hljl > span.hljl-ld { color: rgb(148,91,176); font-style: italic; }
+pre.hljl > span.hljl-s { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sa { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sb { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sc { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sd { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sdB { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sdC { color: rgb(201,61,57); }
+pre.hljl > span.hljl-se { color: rgb(59,151,46); }
+pre.hljl > span.hljl-sh { color: rgb(201,61,57); }
+pre.hljl > span.hljl-si { }
+pre.hljl > span.hljl-so { color: rgb(201,61,57); }
+pre.hljl > span.hljl-sr { color: rgb(201,61,57); }
+pre.hljl > span.hljl-ss { color: rgb(201,61,57); }
+pre.hljl > span.hljl-ssB { color: rgb(201,61,57); }
+pre.hljl > span.hljl-nB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nbB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nfB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nh { color: rgb(59,151,46); }
+pre.hljl > span.hljl-ni { color: rgb(59,151,46); }
+pre.hljl > span.hljl-nil { color: rgb(59,151,46); }
+pre.hljl > span.hljl-noB { color: rgb(59,151,46); }
+pre.hljl > span.hljl-oB { color: rgb(102,102,102); font-weight: bold; }
+pre.hljl > span.hljl-ow { color: rgb(102,102,102); font-weight: bold; }
+pre.hljl > span.hljl-p { }
+pre.hljl > span.hljl-c { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-ch { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cm { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cp { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cpB { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-cs { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-csB { color: rgb(153,153,119); font-style: italic; }
+pre.hljl > span.hljl-g { }
+pre.hljl > span.hljl-gd { }
+pre.hljl > span.hljl-ge { }
+pre.hljl > span.hljl-geB { }
+pre.hljl > span.hljl-gh { }
+pre.hljl > span.hljl-gi { }
+pre.hljl > span.hljl-go { }
+pre.hljl > span.hljl-gp { }
+pre.hljl > span.hljl-gs { }
+pre.hljl > span.hljl-gsB { }
+pre.hljl > span.hljl-gt { }
+</style>
+
+
+
+  <link rel="stylesheet" href="bee4750.css">
+</HEAD>
+
+<BODY>
+  <div class ="container">
+    <div class = "row">
+      <div class = "col-md-12 twelve columns">
+        <div class="title">
+          <h1 class="title">BEE 4750&#x2F;5750 Homework 3</h1>
+          <h2 class="title">Caroline Herzog (crh227)</h2>
+          <h2 class="title">2022-10-17</h2>        
+
+        </div>
+    <hr class="title">
+
+
+        
+<!--  This setups the environment and installs packages, but doesn't appear in the generated document  -->
+
+
+<!--  You shouldn't need to modify this  -->
+
+
+
+
+<!-- - this block is hidden, but stores the generator and demand data; you can use a dataframe to combine these or refactor as you'd like  -->
+
+
+
+<h1>Problem 1</h1>
+<h2>Problem 1.1</h2>
+<p>The decision variables are the installed capacity, <span class="math">$X_e$</span> &#40;MW&#41;, of each energy generation type, and  the energy generated by each type per time period t, <span class="math">$Y_{e,t}$</span> &#40;MW&#41;. Both of these variables will be represented  in the Julia code below as vectors of length 6 where, for example <span class="math">$X_e(1) = X_{geothermal}$</span>. The following  indices correspond to the following energy types: </p>
+<ol>
+<li><p>Geothermal </p>
+</li>
+<li><p>Coal </p>
+</li>
+<li><p>Natural Gas Combined Cycle Gas Turbine &#40;CCGT&#41;  </p>
+</li>
+<li><p>Natural Gas Combustion Turbine &#40;CT&#41;</p>
+</li>
+<li><p>Wind </p>
+</li>
+<li><p>Solar </p>
+</li>
+</ol>
+<h2>Problem 1.2</h2>
+<p>For this problem, we are trying to find the right combination of energy generation types and production that will  minimize the total annual cost, <span class="math">$Z$</span>, of electricity generation. </p>
+<p>important variables:</p>
+<p class="math">\[
+\begin{align*}
+\ \text{min. total cost} = Z \\
+\ \text{annualized investment cost of each generation type, e} = IC_e \\
+\ \text{annual operating cost of each generation type, e} = OC_e \\
+\ \text{energy demand per hour, t} = D_t \\
+\end{align*}
+\]</p>
+<p>putting everything together:</p>
+<p class="math">\[
+\ \text{min}Z = \sum{\text{investment cost of each generation type}} + \sum{\text{operation cost of each generation type}} + \text{penalty} \\
+\ \text{min}Z = \sum_e{IC_e*X_e} + 365\text{ days}*\sum_e{}\sum_{t=1}^{24hr}{OC_e*Y_{e,t}*1\text{ hr}} + 365\text{ days}*\sum_{t=1}^{24hr}{} (D_t - \sum_e{Y_{e,t}*1\text{ hr}}) \\
+\]</p>
+<h2>Problem 1.3</h2>
+<p class="math">\[
+\ \text{non-negativity: } \\
+ X_e \geq 0 \\
+ Y_e,t \geq 0 \\
+\]</p>
+<p class="math">\[
+\ \text{production cannot exceed installed capacity: } \\
+Y_{e,t} \leq CF_{e,t}*X_e \\
+\ \text{should not exceed demand: } \\
+\sum_e{Y_{e,t}} \leq D_t \\
+\ \text{where capacity factor of each generation type, e, per given time period, t} = CF_{e,t} \\
+\]</p>
+<h2>Problem 1.4</h2>
+
+<pre class='hljl'>
+<span class='hljl-nB'>julia&gt; </span><span class='hljl-k'>using</span><span class='hljl-t'> </span><span class='hljl-n'>JuMP</span><span class='hljl-t'>
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-k'>using</span><span class='hljl-t'> </span><span class='hljl-n'>HiGHS</span><span class='hljl-t'>
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>genCost</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>Model</span><span class='hljl-p'>(</span><span class='hljl-n'>HiGHS</span><span class='hljl-oB'>.</span><span class='hljl-n'>Optimizer</span><span class='hljl-p'>)</span><span class='hljl-t'>
+A JuMP Model
+Feasibility problem with:
+Variables: 0
+Model mode: AUTOMATIC
+CachingOptimizer state: EMPTY_OPTIMIZER
+Solver name: HiGHS
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>types</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-p'>[</span><span class='hljl-s'>&quot;geothermal&quot;</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-s'>&quot;coal&quot;</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-s'>&quot;CCGT&quot;</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-s'>&quot;CT&quot;</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-s'>&quot;wind&quot;</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-s'>&quot;solar&quot;</span><span class='hljl-p'>]</span><span class='hljl-t'>
+6-element Vector{String}:
+ &quot;geothermal&quot;
+ &quot;coal&quot;
+ &quot;CCGT&quot;
+ &quot;CT&quot;
+ &quot;wind&quot;
+ &quot;solar&quot;
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>E</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-ni'>1</span><span class='hljl-oB'>:</span><span class='hljl-nf'>length</span><span class='hljl-p'>(</span><span class='hljl-n'>types</span><span class='hljl-p'>)</span><span class='hljl-t'>
+1:6
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>T</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-ni'>1</span><span class='hljl-oB'>:</span><span class='hljl-ni'>24</span><span class='hljl-t'>
+1:24
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-cs'># creates CF array for objective function</span><span class='hljl-t'>
+       </span><span class='hljl-n'>CFg</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-p'>[</span><span class='hljl-nfB'>0.95</span><span class='hljl-p'>]</span><span class='hljl-t'>
+1-element Vector{Float64}:
+ 0.95
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>CFgeo</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>repeat</span><span class='hljl-p'>(</span><span class='hljl-n'>CFg</span><span class='hljl-p'>,</span><span class='hljl-ni'>24</span><span class='hljl-p'>)</span><span class='hljl-t'>
+24-element Vector{Float64}:
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ ⋮
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+ 0.95
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>CFf</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-p'>[</span><span class='hljl-ni'>1</span><span class='hljl-p'>]</span><span class='hljl-t'>
+1-element Vector{Int64}:
+ 1
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>CFf</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>repeat</span><span class='hljl-p'>(</span><span class='hljl-n'>CFf</span><span class='hljl-p'>,</span><span class='hljl-ni'>24</span><span class='hljl-p'>)</span><span class='hljl-t'>
+24-element Vector{Int64}:
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ ⋮
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>CFw</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-p'>[</span><span class='hljl-nfB'>0.58</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.57</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.55</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.28</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.14</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.21</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.03</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.04</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.01</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.04</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.04</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.01</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.04</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.04</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.01</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.01</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.01</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.13</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.30</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.45</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.44</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.57</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.55</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.58</span><span class='hljl-p'>]</span><span class='hljl-t'>
+24-element Vector{Float64}:
+ 0.58
+ 0.57
+ 0.55
+ 0.28
+ 0.14
+ 0.21
+ 0.03
+ 0.04
+ 0.01
+ 0.04
+ ⋮
+ 0.01
+ 0.01
+ 0.13
+ 0.3
+ 0.45
+ 0.44
+ 0.57
+ 0.55
+ 0.58
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>CFs</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-p'>[</span><span class='hljl-ni'>0</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.20</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.57</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.80</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.93</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.99</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.99</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.99</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.99</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.95</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.81</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.55</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-nfB'>0.12</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>;</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>]</span><span class='hljl-t'>
+24-element Vector{Float64}:
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+ 0.2
+ 0.57
+ 0.8
+ 0.93
+ ⋮
+ 0.81
+ 0.55
+ 0.12
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>CF</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>cat</span><span class='hljl-p'>(</span><span class='hljl-n'>CFgeo</span><span class='hljl-p'>,</span><span class='hljl-n'>CFf</span><span class='hljl-p'>,</span><span class='hljl-n'>CFf</span><span class='hljl-p'>,</span><span class='hljl-n'>CFf</span><span class='hljl-p'>,</span><span class='hljl-n'>CFw</span><span class='hljl-p'>,</span><span class='hljl-n'>CFs</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>dims</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-ni'>2</span><span class='hljl-p'>)</span><span class='hljl-t'>
+24×6 Matrix{Float64}:
+ 0.95  1.0  1.0  1.0  0.58  0.0
+ 0.95  1.0  1.0  1.0  0.57  0.0
+ 0.95  1.0  1.0  1.0  0.55  0.0
+ 0.95  1.0  1.0  1.0  0.28  0.0
+ 0.95  1.0  1.0  1.0  0.14  0.0
+ 0.95  1.0  1.0  1.0  0.21  0.0
+ 0.95  1.0  1.0  1.0  0.03  0.2
+ 0.95  1.0  1.0  1.0  0.04  0.57
+ 0.95  1.0  1.0  1.0  0.01  0.8
+ 0.95  1.0  1.0  1.0  0.04  0.93
+ ⋮                          ⋮
+ 0.95  1.0  1.0  1.0  0.01  0.81
+ 0.95  1.0  1.0  1.0  0.01  0.55
+ 0.95  1.0  1.0  1.0  0.13  0.12
+ 0.95  1.0  1.0  1.0  0.3   0.0
+ 0.95  1.0  1.0  1.0  0.45  0.0
+ 0.95  1.0  1.0  1.0  0.44  0.0
+ 0.95  1.0  1.0  1.0  0.57  0.0
+ 0.95  1.0  1.0  1.0  0.55  0.0
+ 0.95  1.0  1.0  1.0  0.58  0.0
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-cs'># create Dt array</span><span class='hljl-t'>
+       </span><span class='hljl-n'>Dt</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-p'>[</span><span class='hljl-ni'>1517</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>1486</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>1544</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>1733</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2058</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2470</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2628</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2696</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2653</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2591</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2626</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2714</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2803</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2842</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2891</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2821</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>3017</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>3074</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2957</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2487</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>2249</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>1933</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>1684</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>1563</span><span class='hljl-p'>]</span><span class='hljl-t'>
+24-element Vector{Int64}:
+ 1517
+ 1486
+ 1544
+ 1733
+ 2058
+ 2470
+ 2628
+ 2696
+ 2653
+ 2591
+    ⋮
+ 2821
+ 3017
+ 3074
+ 2957
+ 2487
+ 2249
+ 1933
+ 1684
+ 1563
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-cs'># investment cost</span><span class='hljl-t'>
+       </span><span class='hljl-n'>IC</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-p'>[</span><span class='hljl-ni'>457000</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>268000</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>85000</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>62580</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>92000</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>90000</span><span class='hljl-p'>]</span><span class='hljl-t'>
+6-element Vector{Int64}:
+ 457000
+ 268000
+  85000
+  62580
+  92000
+  90000
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-cs'># operational cost</span><span class='hljl-t'>
+       </span><span class='hljl-n'>OC</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-p'>[</span><span class='hljl-ni'>0</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>24</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>35</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>45</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>]</span><span class='hljl-t'>
+6-element Vector{Int64}:
+  0
+ 24
+ 35
+ 45
+  0
+  0
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-cs'># defining variables</span><span class='hljl-t'>
+       </span><span class='hljl-nd'>@variable</span><span class='hljl-p'>(</span><span class='hljl-n'>genCost</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>x</span><span class='hljl-p'>[</span><span class='hljl-n'>e</span><span class='hljl-t'> </span><span class='hljl-kp'>in</span><span class='hljl-t'> </span><span class='hljl-n'>E</span><span class='hljl-p'>]</span><span class='hljl-t'> </span><span class='hljl-oB'>&gt;=</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>)</span><span class='hljl-t'>
+1-dimensional DenseAxisArray{JuMP.VariableRef,1,...} with index sets:
+    Dimension 1, 1:6
+And data, a 6-element Vector{JuMP.VariableRef}:
+ x[1]
+ x[2]
+ x[3]
+ x[4]
+ x[5]
+ x[6]
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-nd'>@variable</span><span class='hljl-p'>(</span><span class='hljl-n'>genCost</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>y</span><span class='hljl-p'>[</span><span class='hljl-n'>e</span><span class='hljl-t'> </span><span class='hljl-kp'>in</span><span class='hljl-t'> </span><span class='hljl-n'>E</span><span class='hljl-p'>,</span><span class='hljl-n'>t</span><span class='hljl-t'> </span><span class='hljl-kp'>in</span><span class='hljl-t'> </span><span class='hljl-n'>T</span><span class='hljl-p'>]</span><span class='hljl-t'> </span><span class='hljl-oB'>&gt;=</span><span class='hljl-t'> </span><span class='hljl-ni'>0</span><span class='hljl-p'>)</span><span class='hljl-t'>
+2-dimensional DenseAxisArray{JuMP.VariableRef,2,...} with index sets:
+    Dimension 1, 1:6
+    Dimension 2, 1:24
+And data, a 6×24 Matrix{JuMP.VariableRef}:
+ y[1,1]  y[1,2]  y[1,3]  y[1,4]  …  y[1,21]  y[1,22]  y[1,23]  y[1,24]
+ y[2,1]  y[2,2]  y[2,3]  y[2,4]     y[2,21]  y[2,22]  y[2,23]  y[2,24]
+ y[3,1]  y[3,2]  y[3,3]  y[3,4]     y[3,21]  y[3,22]  y[3,23]  y[3,24]
+ y[4,1]  y[4,2]  y[4,3]  y[4,4]     y[4,21]  y[4,22]  y[4,23]  y[4,24]
+ y[5,1]  y[5,2]  y[5,3]  y[5,4]     y[5,21]  y[5,22]  y[5,23]  y[5,24]
+ y[6,1]  y[6,2]  y[6,3]  y[6,4]  …  y[6,21]  y[6,22]  y[6,23]  y[6,24]
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-cs'># objective function</span><span class='hljl-t'>
+       </span><span class='hljl-n'>Z</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>sum</span><span class='hljl-p'>(</span><span class='hljl-n'>IC</span><span class='hljl-oB'>.*</span><span class='hljl-n'>x</span><span class='hljl-p'>)</span><span class='hljl-t'> </span><span class='hljl-oB'>+</span><span class='hljl-t'> </span><span class='hljl-ni'>365</span><span class='hljl-oB'>*</span><span class='hljl-nf'>sum</span><span class='hljl-p'>(</span><span class='hljl-n'>OC</span><span class='hljl-oB'>.*</span><span class='hljl-nf'>sum</span><span class='hljl-p'>([</span><span class='hljl-n'>y</span><span class='hljl-p'>[</span><span class='hljl-oB'>:</span><span class='hljl-p'>,</span><span class='hljl-n'>t</span><span class='hljl-p'>]</span><span class='hljl-t'> </span><span class='hljl-k'>for</span><span class='hljl-t'> </span><span class='hljl-n'>t</span><span class='hljl-t'> </span><span class='hljl-kp'>in</span><span class='hljl-t'> </span><span class='hljl-n'>T</span><span class='hljl-p'>]))</span><span class='hljl-t'> </span><span class='hljl-oB'>+</span><span class='hljl-t'> </span><span class='hljl-ni'>365</span><span class='hljl-oB'>*</span><span class='hljl-nf'>sum</span><span class='hljl-p'>(</span><span class='hljl-n'>Dt</span><span class='hljl-t'> </span><span class='hljl-oB'>-</span><span class='hljl-t'> </span><span class='hljl-nf'>sum</span><span class='hljl-p'>([</span><span class='hljl-n'>y</span><span class='hljl-p'>[</span><span class='hljl-n'>e</span><span class='hljl-p'>,</span><span class='hljl-oB'>:</span><span class='hljl-p'>]</span><span class='hljl-t'> </span><span class='hljl-k'>for</span><span class='hljl-t'> </span><span class='hljl-n'>e</span><span class='hljl-t'> </span><span class='hljl-kp'>in</span><span class='hljl-t'> </span><span class='hljl-n'>E</span><span class='hljl-p'>]))</span><span class='hljl-t'>
+457000 x[1] + 268000 x[2] + 85000 x[3] + 62580 x[4] + 92000 x[5] + 90000 x[6] + 8395 y[2,1] + 8395 y[2,2] + 8395 y[2,3] + 8395 y[2,4] + 8395 y[2,5] + 8395 y[2,6] + 8395 y[2,7] + 8395 y[2,8] + 8395 y[2,9] + 8395 y[2,10] + 8395 y[2,11] + 8395 y[2,12] + 8395 y[2,13] + 8395 y[2,14] + 8395 y[2,15] + 8395 y[2,16] + 8395 y[2,17] + 8395 y[2,18] + 8395 y[2,19] + 8395 y[2,20] + 8395 y[2,21] + 8395 y[2,22] + 8395 y[2,23] + 8395 y[2,24] + 12410 y[3,1] + 12410 y[3,2] + 12410 y[3,3] + 12410 y[3,4] + 12410 y[3,5] + 12410 y[3,6] + 12410 y[3,7] + 12410 y[3,8] + 12410 y[3,9] + 12410 y[3,10] + 12410 y[3,11] + 12410 y[3,12] + 12410 y[3,13] + 12410 y[3,14] + 12410 y[3,15] + 12410 y[3,16] + 12410 y[3,17] + 12410 y[3,18] + 12410 y[3,19] + 12410 y[3,20] + 12410 y[3,21] + 12410 y[3,22] + 12410 y[3,23] + 12410 y[3,24] + 16060 y[4,1] + 16060 y[4,2] + 16060 y[4,3] + 16060 y[4,4] + 16060 y[4,5] + 16060 y[4,6] + 16060 y[4,7] + 16060 y[4,8] + 16060 y[4,9] + 16060 y[4,10] + 16060 y[4,11] + 16060 y[4,12] + 16060 y[4,13] + 16060 y[4,14] + 16060 y[4,15] + 16060 y[4,16] + 16060 y[4,17] + 16060 y[4,18] + 16060 y[4,19] + 16060 y[4,20] + 16060 y[4,21] + 16060 y[4,22] + 16060 y[4,23] + 16060 y[4,24] - 365 y[1,1] - 365 y[5,1] - 365 y[6,1] - 365 y[1,2] - 365 y[5,2] - 365 y[6,2] - 365 y[1,3] - 365 y[5,3] - 365 y[6,3] - 365 y[1,4] - 365 y[5,4] - 365 y[6,4] - 365 y[1,5] - 365 y[5,5] - 365 y[6,5] - 365 y[1,6] - 365 y[5,6] - 365 y[6,6] - 365 y[1,7] - 365 y[5,7] - 365 y[6,7] - 365 y[1,8] - 365 y[5,8] - 365 y[6,8] - 365 y[1,9] - 365 y[5,9] - 365 y[6,9] - 365 y[1,10] - 365 y[5,10] - 365 y[6,10] - 365 y[1,11] - 365 y[5,11] - 365 y[6,11] - 365 y[1,12] - 365 y[5,12] - 365 y[6,12] - 365 y[1,13] - 365 y[5,13] - 365 y[6,13] - 365 y[1,14] - 365 y[5,14] - 365 y[6,14] - 365 y[1,15] - 365 y[5,15] - 365 y[6,15] - 365 y[1,16] - 365 y[5,16] - 365 y[6,16] - 365 y[1,17] - 365 y[5,17] - 365 y[6,17] - 365 y[1,18] - 365 y[5,18] - 365 y[6,18] - 365 y[1,19] - 365 y[5,19] - 365 y[6,19] - 365 y[1,20] - 365 y[5,20] - 365 y[6,20] - 365 y[1,21] - 365 y[5,21] - 365 y[6,21] - 365 y[1,22] - 365 y[5,22] - 365 y[6,22] - 365 y[1,23] - 365 y[5,23] - 365 y[6,23] - 365 y[1,24] - 365 y[5,24] - 365 y[6,24] + 20818505
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-nd'>@objective</span><span class='hljl-p'>(</span><span class='hljl-n'>genCost</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>Min</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>Z</span><span class='hljl-p'>)</span><span class='hljl-t'>
+457000 x[1] + 268000 x[2] + 85000 x[3] + 62580 x[4] + 92000 x[5] + 90000 x[6] + 8395 y[2,1] + 8395 y[2,2] + 8395 y[2,3] + 8395 y[2,4] + 8395 y[2,5] + 8395 y[2,6] + 8395 y[2,7] + 8395 y[2,8] + 8395 y[2,9] + 8395 y[2,10] + 8395 y[2,11] + 8395 y[2,12] + 8395 y[2,13] + 8395 y[2,14] + 8395 y[2,15] + 8395 y[2,16] + 8395 y[2,17] + 8395 y[2,18] + 8395 y[2,19] + 8395 y[2,20] + 8395 y[2,21] + 8395 y[2,22] + 8395 y[2,23] + 8395 y[2,24] + 12410 y[3,1] + 12410 y[3,2] + 12410 y[3,3] + 12410 y[3,4] + 12410 y[3,5] + 12410 y[3,6] + 12410 y[3,7] + 12410 y[3,8] + 12410 y[3,9] + 12410 y[3,10] + 12410 y[3,11] + 12410 y[3,12] + 12410 y[3,13] + 12410 y[3,14] + 12410 y[3,15] + 12410 y[3,16] + 12410 y[3,17] + 12410 y[3,18] + 12410 y[3,19] + 12410 y[3,20] + 12410 y[3,21] + 12410 y[3,22] + 12410 y[3,23] + 12410 y[3,24] + 16060 y[4,1] + 16060 y[4,2] + 16060 y[4,3] + 16060 y[4,4] + 16060 y[4,5] + 16060 y[4,6] + 16060 y[4,7] + 16060 y[4,8] + 16060 y[4,9] + 16060 y[4,10] + 16060 y[4,11] + 16060 y[4,12] + 16060 y[4,13] + 16060 y[4,14] + 16060 y[4,15] + 16060 y[4,16] + 16060 y[4,17] + 16060 y[4,18] + 16060 y[4,19] + 16060 y[4,20] + 16060 y[4,21] + 16060 y[4,22] + 16060 y[4,23] + 16060 y[4,24] - 365 y[1,1] - 365 y[5,1] - 365 y[6,1] - 365 y[1,2] - 365 y[5,2] - 365 y[6,2] - 365 y[1,3] - 365 y[5,3] - 365 y[6,3] - 365 y[1,4] - 365 y[5,4] - 365 y[6,4] - 365 y[1,5] - 365 y[5,5] - 365 y[6,5] - 365 y[1,6] - 365 y[5,6] - 365 y[6,6] - 365 y[1,7] - 365 y[5,7] - 365 y[6,7] - 365 y[1,8] - 365 y[5,8] - 365 y[6,8] - 365 y[1,9] - 365 y[5,9] - 365 y[6,9] - 365 y[1,10] - 365 y[5,10] - 365 y[6,10] - 365 y[1,11] - 365 y[5,11] - 365 y[6,11] - 365 y[1,12] - 365 y[5,12] - 365 y[6,12] - 365 y[1,13] - 365 y[5,13] - 365 y[6,13] - 365 y[1,14] - 365 y[5,14] - 365 y[6,14] - 365 y[1,15] - 365 y[5,15] - 365 y[6,15] - 365 y[1,16] - 365 y[5,16] - 365 y[6,16] - 365 y[1,17] - 365 y[5,17] - 365 y[6,17] - 365 y[1,18] - 365 y[5,18] - 365 y[6,18] - 365 y[1,19] - 365 y[5,19] - 365 y[6,19] - 365 y[1,20] - 365 y[5,20] - 365 y[6,20] - 365 y[1,21] - 365 y[5,21] - 365 y[6,21] - 365 y[1,22] - 365 y[5,22] - 365 y[6,22] - 365 y[1,23] - 365 y[5,23] - 365 y[6,23] - 365 y[1,24] - 365 y[5,24] - 365 y[6,24] + 20818505
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-cs'># constraints</span><span class='hljl-t'>
+       </span><span class='hljl-nd'>@constraint</span><span class='hljl-p'>(</span><span class='hljl-n'>genCost</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>cap</span><span class='hljl-p'>[</span><span class='hljl-n'>e</span><span class='hljl-t'> </span><span class='hljl-kp'>in</span><span class='hljl-t'> </span><span class='hljl-n'>E</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>t</span><span class='hljl-t'> </span><span class='hljl-kp'>in</span><span class='hljl-t'> </span><span class='hljl-n'>T</span><span class='hljl-p'>],</span><span class='hljl-t'> </span><span class='hljl-n'>y</span><span class='hljl-p'>[</span><span class='hljl-n'>e</span><span class='hljl-p'>,</span><span class='hljl-n'>t</span><span class='hljl-p'>]</span><span class='hljl-t'> </span><span class='hljl-oB'>&lt;=</span><span class='hljl-t'> </span><span class='hljl-n'>CF</span><span class='hljl-p'>[</span><span class='hljl-n'>e</span><span class='hljl-p'>,</span><span class='hljl-n'>t</span><span class='hljl-p'>]</span><span class='hljl-oB'>*</span><span class='hljl-n'>x</span><span class='hljl-p'>[</span><span class='hljl-n'>e</span><span class='hljl-p'>])</span><span class='hljl-t'>
+Error: BoundsError: attempt to access 24×6 Matrix{Float64} at index [1, 7]
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-nd'>@constraint</span><span class='hljl-p'>(</span><span class='hljl-n'>genCost</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-n'>demand</span><span class='hljl-p'>,</span><span class='hljl-t'> </span><span class='hljl-nf'>sum</span><span class='hljl-p'>([</span><span class='hljl-n'>y</span><span class='hljl-p'>[</span><span class='hljl-n'>e</span><span class='hljl-p'>,</span><span class='hljl-oB'>:</span><span class='hljl-p'>]</span><span class='hljl-t'> </span><span class='hljl-k'>for</span><span class='hljl-t'> </span><span class='hljl-n'>e</span><span class='hljl-t'> </span><span class='hljl-kp'>in</span><span class='hljl-t'> </span><span class='hljl-n'>E</span><span class='hljl-p'>])</span><span class='hljl-t'> </span><span class='hljl-oB'>.&lt;=</span><span class='hljl-t'> </span><span class='hljl-n'>Dt</span><span class='hljl-p'>[</span><span class='hljl-n'>T</span><span class='hljl-p'>])</span><span class='hljl-t'>
+1-dimensional DenseAxisArray{JuMP.ConstraintRef{JuMP.Model, MathOptInterface.ConstraintIndex{MathOptInterface.ScalarAffineFunction{Float64}, MathOptInterface.LessThan{Float64}}, JuMP.ScalarShape},1,...} with index sets:
+    Dimension 1, 1:24
+And data, a 24-element Vector{JuMP.ConstraintRef{JuMP.Model, MathOptInterface.ConstraintIndex{MathOptInterface.ScalarAffineFunction{Float64}, MathOptInterface.LessThan{Float64}}, JuMP.ScalarShape}}:
+ demand : y[1,1] + y[2,1] + y[3,1] + y[4,1] + y[5,1] + y[6,1] &lt;= 1517.0
+ demand : y[1,2] + y[2,2] + y[3,2] + y[4,2] + y[5,2] + y[6,2] &lt;= 1486.0
+ demand : y[1,3] + y[2,3] + y[3,3] + y[4,3] + y[5,3] + y[6,3] &lt;= 1544.0
+ demand : y[1,4] + y[2,4] + y[3,4] + y[4,4] + y[5,4] + y[6,4] &lt;= 1733.0
+ demand : y[1,5] + y[2,5] + y[3,5] + y[4,5] + y[5,5] + y[6,5] &lt;= 2058.0
+ demand : y[1,6] + y[2,6] + y[3,6] + y[4,6] + y[5,6] + y[6,6] &lt;= 2470.0
+ demand : y[1,7] + y[2,7] + y[3,7] + y[4,7] + y[5,7] + y[6,7] &lt;= 2628.0
+ demand : y[1,8] + y[2,8] + y[3,8] + y[4,8] + y[5,8] + y[6,8] &lt;= 2696.0
+ demand : y[1,9] + y[2,9] + y[3,9] + y[4,9] + y[5,9] + y[6,9] &lt;= 2653.0
+ demand : y[1,10] + y[2,10] + y[3,10] + y[4,10] + y[5,10] + y[6,10] &lt;= 2591.0
+ ⋮
+ demand : y[1,16] + y[2,16] + y[3,16] + y[4,16] + y[5,16] + y[6,16] &lt;= 2821.0
+ demand : y[1,17] + y[2,17] + y[3,17] + y[4,17] + y[5,17] + y[6,17] &lt;= 3017.0
+ demand : y[1,18] + y[2,18] + y[3,18] + y[4,18] + y[5,18] + y[6,18] &lt;= 3074.0
+ demand : y[1,19] + y[2,19] + y[3,19] + y[4,19] + y[5,19] + y[6,19] &lt;= 2957.0
+ demand : y[1,20] + y[2,20] + y[3,20] + y[4,20] + y[5,20] + y[6,20] &lt;= 2487.0
+ demand : y[1,21] + y[2,21] + y[3,21] + y[4,21] + y[5,21] + y[6,21] &lt;= 2249.0
+ demand : y[1,22] + y[2,22] + y[3,22] + y[4,22] + y[5,22] + y[6,22] &lt;= 1933.0
+ demand : y[1,23] + y[2,23] + y[3,23] + y[4,23] + y[5,23] + y[6,23] &lt;= 1684.0
+ demand : y[1,24] + y[2,24] + y[3,24] + y[4,24] + y[5,24] + y[6,24] &lt;= 1563.0</span>
+</pre>
+
+<h2>Problem 1.5</h2>
+
+<pre class='hljl'>
+<span class='hljl-nB'>julia&gt; </span><span class='hljl-cs'># solve model</span><span class='hljl-t'>
+       </span><span class='hljl-nf'>optimize!</span><span class='hljl-p'>(</span><span class='hljl-n'>genCost</span><span class='hljl-p'>)</span><span class='hljl-t'>
+Presolving model
+38 rows, 39 cols, 63 nonzeros
+20 rows, 18 cols, 45 nonzeros
+Presolve : Reductions: rows 20(-40); columns 18(-132); elements 45(-165)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0    -8.9424930719e+03 Ph1: 20(32); Du: 15(8942.49) 0s
+         20     3.9449200000e+06 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 20
+Objective value     :  3.9449200000e+06
+HiGHS run time      :          0.00
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-cs'># generate solution summary</span><span class='hljl-t'>
+       </span><span class='hljl-nf'>solution_summary</span><span class='hljl-p'>(</span><span class='hljl-n'>genCost</span><span class='hljl-p'>)</span><span class='hljl-t'>
+* Solver : HiGHS
+
+* Status
+  Termination status : OPTIMAL
+  Primal status      : FEASIBLE_POINT
+  Dual status        : FEASIBLE_POINT
+  Message from the solver:
+  &quot;kHighsModelStatusOptimal&quot;
+
+* Candidate solution
+  Objective value      : 3.94492e+06
+  Objective bound      : 0.00000e+00
+  Relative gap         : Inf
+  Dual objective value : 3.94492e+06
+
+* Work counters
+  Solve time (sec)   : 1.00112e-03
+  Simplex iterations : 20
+  Barrier iterations : 0
+  Node count         : -1
+
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>cost</span><span class='hljl-t'> </span><span class='hljl-oB'>=</span><span class='hljl-t'> </span><span class='hljl-nf'>objective_value</span><span class='hljl-p'>(</span><span class='hljl-n'>genCost</span><span class='hljl-p'>)</span><span class='hljl-t'>
+3.94492e6
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-cs'># obtain optimal variable quantities</span><span class='hljl-t'>
+       </span><span class='hljl-n'>value</span><span class='hljl-oB'>.</span><span class='hljl-p'>(</span><span class='hljl-n'>x</span><span class='hljl-p'>)</span><span class='hljl-t'>
+1-dimensional DenseAxisArray{Float64,1,...} with index sets:
+    Dimension 1, 1:6
+And data, a 6-element Vector{Float64}:
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+
+</span><span class='hljl-nB'>julia&gt; </span><span class='hljl-n'>value</span><span class='hljl-oB'>.</span><span class='hljl-p'>(</span><span class='hljl-n'>y</span><span class='hljl-p'>)</span><span class='hljl-t'>
+2-dimensional DenseAxisArray{Float64,2,...} with index sets:
+    Dimension 1, 1:6
+    Dimension 2, 1:24
+And data, a 6×24 Matrix{Float64}:
+ -0.0  -0.0  -0.0  -0.0  -0.0  -0.0  …  2249.0  1933.0  1684.0  1563.0
+  0.0   0.0   0.0   0.0   0.0   0.0        0.0     0.0     0.0     0.0
+  0.0   0.0   0.0   0.0   0.0   0.0        0.0     0.0     0.0     0.0
+  0.0   0.0   0.0   0.0   0.0   0.0        0.0     0.0     0.0     0.0
+ -0.0  -0.0  -0.0  -0.0  -0.0  -0.0        0.0     0.0     0.0     0.0
+ -0.0  -0.0  -0.0  -0.0  -0.0  -0.0  …     0.0     0.0     0.0     0.0</span>
+</pre>
+
+<p>In order to achieve a minimum cost of 3.94492e6, the utility should install the following quantities of  energy generation: </p>
+<p>Table 1. Amount of Each Energy Generation Type Utility Should Build </p>
+<table><tr><th>Generation Type</th><th>Installed Capacity &#40;MW&#41;</th></tr><tr><td>Geothermal</td><td>x&#91;1&#93;</td></tr><tr><td>Coal</td><td>x&#91;2&#93;</td></tr><tr><td>CCGT</td><td>x&#91;3&#93;</td></tr><tr><td>CT</td><td>x&#91;4&#93;</td></tr><tr><td>Wind</td><td>x&#91;5&#93;</td></tr><tr><td>Solar</td><td>x&#91;6&#93;</td></tr></table>
+<p>X MW of energy demand will be unserved. </p>
+<h2>Problem 1.6</h2>
+<h1>Problem 2</h1>
+<h2>Problem 2.1</h2>
+<h2>Problem 2.2</h2>
+<h2>Problem 2.3</h2>
+<h2>Problem 2.4</h2>
+<h2>Problem 2.5</h2>
+<h1>References</h1>
+
+
+    <hr class="title">
+      </div>
+    </div>
+  </div>
+</BODY>
+
+</HTML>

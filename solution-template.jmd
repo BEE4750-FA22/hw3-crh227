@@ -55,15 +55,16 @@ important variables:
 \ \text{annualized investment cost of each generation type, e} = IC_e \\
 \ \text{annual operating cost of each generation type, e} = OC_e \\
 \ \text{energy demand per hour, t} = D_t \\
-\ \text{installed capacity of each generator type (MW) } = x_e \\
-\ \text{energy generated in 1 hour (MW) } = y_{e,t} \\
+\ \text{installed capacity of each generator type (MW) } = X_e \\
+\ \text{energy generated in hour t (MW) } = Y_{e,t} \\
+\ \text{energy demand unserved in hour t (MW) } = U_{t} \\
 \end{align*}
 ```
 
 putting everything together:
 ```math
 \ \text{min}Z = \sum{\text{investment cost of each generation type}} + \sum{\text{operation cost of each generation type}} + \text{penalty} \\
-\ \text{min}Z = \sum_e{IC_e*X_e} + 365\text{ days}*\sum_e{}\sum_{t=1}^{24hr}{OC_e*Y_{e,t}} + 365\text{ days}*1000\text{ USD/MWh}*\sum_{t=1}^{24hr}{} (D_t - \sum_e{Y_{e,t}}) \\
+\ \text{min}Z = \sum_e{IC_e*X_e} + 365\text{ days}*\sum_e{}\sum_{t=1}^{24hr}{OC_e*Y_{e,t}} + 365\text{ days}*1000\text{ USD/MWh}*\sum_{t=1}^{24hr}{} U_{t}) \\
 ```
 
 ## Problem 1.3
@@ -71,14 +72,15 @@ putting everything together:
 \ \text{non-negativity: } \\
  X_e \geq 0 \\
  Y_e,t \geq 0 \\
+ U_t \geq 0 \\
 ```
 ```math
 \ \text{production cannot exceed installed capacity: } \\
 Y_{e,t} \leq CF_{e,t}*X_e \\
 ```
 ```math
-\ \text{should not exceed demand: } \\
-\sum_e{Y_{e,t}} \leq D_t \\
+\ \text{total energy produced plus unserved demand should equal demand at each hour t: } \\
+\sum_e{Y_{e,t}} + U_t = D_t \\
 ```
 where capacity factor of each generation type, e, per given time period, t = $CF_{e,t}$
 
@@ -110,21 +112,19 @@ IC = investment_cost
 # operational cost
 OC = op_cost 
 
-# cost of unserved energy ($/MWh)
-unserv = 1000
-
 # defining variables
 @variable(genCost, x[e in E] >= 0)
 @variable(genCost, y[e in E,t in T] >= 0)
+@variable(genCost, u[T] >= 0)     # energy unserved 
 
 # objective function
-Z = sum(IC.*x) + 365*sum(OC.*sum([y[:,t] for t in T])) + 365*unserv*sum(Dt - sum([y[e,:] for e in E]))
+Z = sum(IC.*x) + 365*sum(OC.*sum([y[:,t] for t in T])) + 365*1000*sum(u)
 @objective(genCost, Min, Z)
 
 # constraints
 @constraint(genCost, cap[e in E, t in T], y[e,t] <= CF[e,t]*x[e])
-@constraint(genCost, demand, sum([y[e,:] for e in E]) .== Dt[T])
-# note: non-negativity for x[e] and y[e,t] already included in variable definitions
+@constraint(genCost, demand, (sum([y[e,:] for e in E]) + u .== Dt))
+# note: non-negativity for x[e], y[e,t], and u[t] already included in variable definitions
 ```
 
 ## Problem 1.5
@@ -139,9 +139,11 @@ cost = round(objective_value(genCost); sigdigits = 4)
 # obtain optimal variable quantities, convert to usable matrices
 xVals = round.(Vector(value.(x)); digits = 1)
 yVals = round.(Matrix(value.(y))'; digits = 1)
+uVals = Vector(value.(u))
+uTotal = round(sum(uVals); digits = 1)
 ```
 
-In order to achieve a minimum cost of `j cost` USD per year ($ $912.1 \text{million/yr }$), the utility should install the following quantities of 
+In order to achieve a minimum cost of $ $912.1 \text{million/yr }$, the utility should install the following quantities of 
 energy generation: 
 
 Table 1. Amount of Each Energy Generation Type Utility Should Build 
@@ -155,7 +157,7 @@ Table 1. Amount of Each Energy Generation Type Utility Should Build
 | Wind       | `j xVals[5]`   |
 | Solar      | `j xVals[6]`   |
 
-0 MW of energy demand will be unserved. 
+`j uTotal` total MW of energy demand will be unserved. 
 
 ## Problem 1.6
 ```julia
@@ -178,7 +180,7 @@ plot!(T,Dt, linewidth = 3, linestyle = :dot, color = "plum", label = "Demand")
 
 ## Problem 2.1
 We need another constraint to incorporate this regulation into our model, where we can say that the sum of 
-carbon emitted per year from every energy source must be less that $1.5$ MtCO2: 
+carbon emitted per year from every energy source must be less that $1.5 \text{ MtCO2}$: 
 
 ```math
 \ 1.5 \text{MtCO2 } \geq 365\text{ days}*\sum_e{}\sum_{t=1}^{24hr}{Y_{e,t}} \\
@@ -200,14 +202,15 @@ genCO2 = Model(HiGHS.Optimizer)
 # variables - same as before, but with x1 and y1 instead of x and y
 @variable(genCO2, x1[e in E] >= 0)
 @variable(genCO2, y1[e in E,t in T] >= 0)
+@variable(genCO2, u1[T] >= 0)
 
 # objective function
-Z1 = sum(IC.*x1) + 365*sum(OC.*sum([y1[:,t] for t in T])) + 365*unserv*sum(Dt - sum([y1[e,:] for e in E]))
+Z1 = sum(IC.*x1) + 365*sum(OC.*sum([y1[:,t] for t in T])) + 365*1000*sum(u1)
 @objective(genCO2, Min, Z1)
 
 # constraints
 @constraint(genCO2, cap[e in E, t in T], y1[e,t] <= CF[e,t]*x1[e])
-@constraint(genCO2, demand, sum([y1[e,:] for e in E]) .== Dt[T])
+@constraint(genCO2, demand, (sum([y1[e,:] for e in E]) + u1 .== Dt))
 @constraint(genCO2, CO2_lim, em_lim >= 365*sum(CO2.*sum([y1[:,t] for t in T])))
 
 ```
@@ -226,10 +229,11 @@ cost1 = round(objective_value(genCO2); sigdigits = 4)
 # obtain optimal variable quantities
 xVals1 = round.(Vector(value.(x1)); digits = 1)
 yVals1 = round.(Matrix(value.(y1))'; digits = 1)
-
+uVals1 = Vector(value.(u1))
+uTotal1 = round(sum(uVals1); digits = 1)
 ```
 
-In order to achieve a minimum cost of `j cost1` USD per year ($ $1.066 \text{billion/yr }$), the utility should install the following quantities of 
+In order to achieve a minimum cost of $ $1.066 \text{ billion/yr }$, the utility should install the following quantities of 
 energy generation: 
 
 Table 2. Amount of Each Energy Generation Type Utility Should Build with CO2 Regulatory Limit
@@ -243,7 +247,7 @@ Table 2. Amount of Each Energy Generation Type Utility Should Build with CO2 Reg
 | Wind       | `j xVals1[5]`   |
 | Solar      | `j xVals1[6]`   |
 
-0 MW of energy demand will be unserved. 
+`j uTotal1` MW of energy demand will be unserved. 
 
 ## Problem 2.4
 ```julia
@@ -272,7 +276,7 @@ has_duals(genCO2)
 CO2_price = (1/1000)*round(shadow_price(CO2_lim); sigdigits = 4)
 ```
 
-Therefore, it would save the utility `j abs(CO2_price)` USD per year ($ $130,200 \text{/yr }$ to relax the CO2 emissions limit by 1000 tCO2.
+Therefore, it would save the utility $ $130,200 \text{/yr }$ to relax the CO2 emissions limit by 1000 tCO2.
 
 # References
 For help with converting Julia solution to arrays for plotting:
